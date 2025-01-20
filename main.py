@@ -14,20 +14,35 @@ import random
 
 # # two sum
 
-# number = [ random.randint(-100,100) for i in range(100)]
-number = [3,3]
-print(number)
-# target = random.randint(-100,100)
-target = 6
-print(target)
-otvet = []
-for i in range(len(number)):
-    temp = target - number[i]
-    if temp in number[i:len(number)-1]:
-        otvet = [i, number.index(temp, i+1, len(number))]
-        break
-    else: 
-        continue
+# # number = [ random.randint(-100,100) for i in range(100)]
+# number = [3,3]
+# print(number)
+# # target = random.randint(-100,100)
+# target = 6
+# print(target)
+# otvet = []
+# for i in range(len(number)):
+#     temp = target - number[i]
+#     if temp in number[i:len(number)-1]:
+#         otvet = [i, number.index(temp, i+1, len(number))]
+#         break
+#     else: 
+#         continue
 
-print(otvet)
+# print(otvet)
     
+
+class Solution:
+    def twoSum(self, nums: list, target: int):
+        otvet = []
+        for i in range(len(nums)):
+            temp = target - nums[i]
+            print(temp, i,nums[(i+1):len(nums)])
+            if temp in nums[(i+1):len(nums)]:
+                return [i, nums.index(temp, i+1, len(nums))]
+            else: 
+                continue
+        return otvet
+
+aga = Solution()
+print(aga.twoSum(nums=[3,2,4], target=6))
